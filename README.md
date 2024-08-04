@@ -1,6 +1,6 @@
 **OPMS-(OP Hospital Management System)**
 ---------------------------
-This is consists of 3 Modules 
+This is consists of 3 Modules: 
   1. Admin module
   2. Doctor Module
   3. Patient Module
@@ -18,6 +18,7 @@ Patient module:
 ------------------------------
 This project have mail api in which the mail is sent to the both doctor and patient after bookingthe appointment
 ------------------------------
+Frameworks used:
 **The JSF framework is used in this project with bean validations
-Oracle databse is used for this with JPA **
------------------       ...        -----------------
+Oracle databse is used for this with JPA ** 
+---------------
