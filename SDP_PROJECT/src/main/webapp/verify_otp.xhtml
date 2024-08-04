@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Verify OTP</title>
+</h:head>
+<h:body>
+    <h:form>
+        <h:outputLabel for="otp" value="Enter the OTP sent to your email:" />
+        <h:inputText id="otp" value="#{register.otp}" required="true" />
+        <h:message for="otp" />
+        
+        <h:outputLabel for="newPassword" value="Enter new password:" />
+        <h:inputSecret id="newPassword" value="#{register.newPassword}" required="true" />
+        <h:message for="newPassword" />
+        
+        <h:commandButton value="Reset Password" action="#{register.verifyOtpAndResetPassword}" />
+        
+        <h:messages globalOnly="true" />
+    </h:form>
+</h:body>
+</html>

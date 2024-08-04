@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+<head>
+    <title>Patient Home</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden; /* Prevent horizontal scrolling */
+        }
+        .navbar {
+            margin-bottom: 0;
+        }
+        .sidebar {
+            width: 0; /* Hidden by default */
+            height: calc(100vh - 56px); /* Subtract the navbar height */
+            background-color: #343a40;
+            color: #fff;
+            position: fixed;
+            top: 56px; /* Set the top position to the navbar height */
+            left: 0;
+            padding-top: 20px;
+            transition: width 0.3s ease; /* Smooth transition for width */
+            overflow: hidden; /* Hide content when collapsed */
+            z-index: 999;
+        }
+        .sidebar.open {
+            width: 250px; /* Expanded width */
+            overflow: auto; /* Show content when expanded */
+        }
+        .sidebar a {
+            color: #fff;
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            white-space: nowrap; /* Prevent text from wrapping */
+        }
+        .sidebar a:hover {
+            background-color: #007bff;
+            text-decoration: none;
+        }
+        .main-content {
+            margin-left: 0; /* No margin when sidebar is hidden */
+            margin-top: 56px; /* Add margin-top to account for the navbar */
+            padding: 30px;
+            width: 100%; /* Full width when sidebar is hidden */
+            transition: margin-left 0.3s ease, width 0.3s ease; /* Smooth transition for margin and width */
+        }
+        .main-content.expanded {
+            margin-left: 250px; /* Margin adjustment for expanded sidebar */
+            width: calc(100% - 250px); /* Adjust width for expanded sidebar */
+        }
+        .card-custom {
+            margin: 15px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease; /* Smooth scaling transition */
+            display: flex;
+            flex-direction: column; /* Arrange buttons in column */
+            align-items: center; /* Center buttons horizontally */
+        }
+       .card-custom h2 {
+            margin-bottom: 20px; /* Space between title and buttons */
+        }
+        .card-custom button {
+            margin: 10px 0; /* Add vertical space between buttons */
+        }
+        .summary-card {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease; /* Smooth scaling transition */
+        }
+        .summary-card.expanded {
+            transform: scale(1.05); /* Slightly enlarge effect */
+        }
+        .summary-card h3 {
+            font-size: 1.5rem; /* Adjust font size for headings */
+            margin-bottom: 10px;
+        }
+        .summary-card p {
+            font-size: 2rem; /* Larger font size for numbers */
+            font-weight: bold; /* Make numbers stand out */
+        }
+        #sticky-footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: skyblue;
+            color: black;
+            padding: 10px;
+            font-weight: bold;
+        }
+        .dashboard-button {
+            position: fixed;
+            top: 70px; /* Adjust based on navbar height */
+            right: 10px; /* Distance from the right edge */
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+        .dashboard-button:hover {
+            background-color: #0056b3;
+        }
+        .material-icons {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <ui:include src="/resources/navbar/patientnavbar.html"/>
+
+    <!-- Include the dashboard -->
+    <ui:include src="/resources/dashboard/patientdashboard.xhtml"/>
+
+     
+
+    <footer id="sticky-footer" class="flex-shrink-0 py-2">
+        <div class="container text-center">
+            <small>© Copyright 2024 by SSD. All Rights Reserved.</small>
+        </div>
+    </footer>
+
+    <!-- Include Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('dashboardSidebar');
+            const mainContent = document.getElementById('mainContent');
+            
+            // Toggle sidebar open/close
+            sidebar.classList.toggle('open');
+            
+            // Adjust main content margin and width
+            mainContent.classList.toggle('expanded');
+        }
+    </script>
+     <div class="dashboard-button" onclick="toggleSidebar()">
+        <span class="material-icons">menu</span>
+    </div>
+</body>
+</html>

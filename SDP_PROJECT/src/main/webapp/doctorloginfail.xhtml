@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+<head>
+    <title>Action Failed</title>
+    <style>
+        /* General styles for the popup */
+        .popup-container {
+            display: none; /* Hidden by default */
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            text-align: center;
+            animation: fadeIn 0.5s ease-out; /* Fade-in effect */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .popup-container h3 {
+            margin-top: 0;
+            color: #cc0000;
+        }
+
+        .popup-container .btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .popup-container .btn:hover {
+            background-color: #45a049;
+        }
+
+        /* Overlay styles */
+        .overlay {
+            display: none; /* Hidden by default */
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+    </style>
+    <script>
+        function showPopup() {
+            document.getElementById('popup').style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        function hidePopup() {
+            document.getElementById('popup').style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
+        }
+    </script>
+</head>
+<body onload="showPopup()">
+    <ui:include src="/resources/navbar/navbar.html"/>
+    <div class="overlay" id="overlay" onclick="hidePopup()"></div>
+    <div class="popup-container" id="popup">
+        <h3>Action Failed</h3>
+        <p>Action was not successful. Please try again.</p>
+        <a href="doctorlogin.jsf" class="btn">Try Again</a>
+    </div>
+</body>
+</html>

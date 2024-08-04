@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+<head>
+    <title>Doctor Register</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+    <style>
+        body {
+            margin: 0;
+            background-color: #f2f2f2;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .form-container {
+            max-width: 400px;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: auto; /* Centering the form */
+            margin-top: 50px; /* Add top margin */
+        }
+        .form-container h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        .form-group .form-control {
+            border-radius: 5px;
+        }
+        .btn-register {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .btn-register:hover {
+            background-color: #45a049;
+        }
+        .password-instructions {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+        .login-link-container {
+            margin-top: 20px;
+        }
+        .login-link-container a {
+            font-size: 14px;
+            color: #4CAF50;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar-container">
+        <ui:include src="/resources/navbar/adminnavbar.html"/>
+    </div>
+    <div class="container">
+        <div class="form-container">
+            <h2>Doctor Register</h2>
+            <h:form>
+                <div class="form-group">
+                    <h:outputLabel for="Firstname" value="First Name:" />
+                    <h:inputText id="Firstname" value="#{register.doctorfirstname}" required="true" 
+                                 styleClass="form-control" />
+                    <h:message for="Firstname" styleClass="text-danger" />
+                </div>
+                <div class="form-group">
+                    <h:outputLabel for="Lastname" value="Last Name:" />
+                    <h:inputText id="Lastname" value="#{register.doctorlastname}" required="true" 
+                                 styleClass="form-control" />
+                    <h:message for="Lastname" styleClass="text-danger" />
+                </div>
+                <div class="form-group">
+                    <h:outputLabel for="Phonenum" value="Phone Number:" />
+                    <h:inputText id="Phonenum" value="#{register.doctorphonenumber}" required="true" 
+                                 styleClass="form-control" />
+                    <h:message for="Phonenum" styleClass="text-danger" />
+                </div>
+                <div class="form-group">
+                    <h:outputLabel value="Gender:" />
+                    <h:selectOneRadio value="#{register.doctorgender}" styleClass="form-check">
+                        <f:selectItem itemLabel="Male" itemValue="male" />
+                        <f:selectItem itemLabel="Female" itemValue="female" />
+                        <f:selectItem itemLabel="Other" itemValue="other" />
+                    </h:selectOneRadio>
+                    <h:message for="Gender" styleClass="text-danger" />
+                </div>
+                <div class="form-group">
+                    <h:outputLabel for="Email" value="Email:" />
+                    <h:inputText id="Email" value="#{register.doctoremail}" required="true" 
+                                 styleClass="form-control" />
+                    <h:message for="Email" styleClass="text-danger" />
+                </div>
+                <div class="form-group">
+                    <h:outputLabel for="doctorType" value="Type of Doctor:" />
+                    <h:selectOneMenu id="doctorType" value="#{register.doctortype}" 
+                                     styleClass="form-control">
+                        <f:selectItem itemLabel="Select type" itemValue="Select type" />
+                        <f:selectItem itemLabel="General Physician" itemValue="General Physician" />
+                        <f:selectItem itemLabel="Cardiologist" itemValue="Cardiologist" />
+                        <f:selectItem itemLabel="Dermatologist" itemValue="Dermatologist" />
+                        <f:selectItem itemLabel="Endocrinologist" itemValue="Endocrinologist" />
+                        <f:selectItem itemLabel="Gastroenterologist" itemValue="Gastroenterologist" />
+                        <f:selectItem itemLabel="Neurologist" itemValue="Neurologist" />
+                        <f:selectItem itemLabel="Obstetrician" itemValue="Obstetrician" />
+                        <f:selectItem itemLabel="Oncologist" itemValue="Oncologist" />
+                        <f:selectItem itemLabel="Ophthalmologist" itemValue="Ophthalmologist" />
+                        <f:selectItem itemLabel="Orthopedic Surgeon" itemValue="Orthopedic Surgeon" />
+                        <f:selectItem itemLabel="Pediatrician" itemValue="Pediatrician" />
+                        <f:selectItem itemLabel="Psychiatrist" itemValue="Psychiatrist" />
+                        <f:selectItem itemLabel="Pulmonologist" itemValue="Pulmonologist" />
+                        <f:selectItem itemLabel="Radiologist" itemValue="Radiologist" />
+                        <f:selectItem itemLabel="Urologist" itemValue="Urologist" />
+                        <f:selectItem itemLabel="Allergist/Immunologist" itemValue="Allergist/Immunologist" />
+                        <f:selectItem itemLabel="Rheumatologist" itemValue="Rheumatologist" />
+                        <f:selectItem itemLabel="Anesthesiologist" itemValue="Anesthesiologist" />
+                    </h:selectOneMenu>
+                </div>
+                <div class="form-group">
+                    <h:outputLabel for="Username" value="Username:" />
+                    <h:inputText id="Username" value="#{register.doctorusername}" required="true" 
+                                 styleClass="form-control" />
+                    <h:message for="Username" styleClass="text-danger" />
+                </div>
+                <div class="form-group">
+                    <h:outputLabel for="Password" value="Password:" />
+                    <h:inputSecret id="Password" value="#{register.doctorpassword}" required="true" 
+                                  styleClass="form-control">
+                        <f:validateRegex pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$"/>
+                    </h:inputSecret>
+                    <div class="password-instructions">
+                        Password must start with a capital letter, contain a special character, have at least one number, and be at least 8 characters long.
+                    </div>
+                    <h:message for="Password" styleClass="text-danger" />
+                </div>
+                <h:commandButton id="Register" action="#{register.calldoctorregister()}" 
+                                 styleClass="btn btn-register" value="Register" /><br/>  
+                <h:messages globalOnly="true" styleClass="text-danger" />
+                <div class="login-link-container">
+                    <h:commandLink action="#{register.callpatientregister()}" value="Login" 
+                                   styleClass="btn btn-link" />
+                </div>
+            </h:form>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

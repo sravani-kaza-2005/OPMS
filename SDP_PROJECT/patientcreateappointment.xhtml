@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Create Appointment</title>
+    <!-- Add Bootstrap CSS for styling -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.min.css" />
+    <style>
+        .custom-select {
+            max-width: 400px;
+            margin-bottom: 15px;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</h:head>
+<h:body>
+    <div class="container">
+        <h1>Create Appointment</h1>
+        <h:form class="form-group" enctype="multipart/form-data">
+            <div class="form-group">
+                <h:outputLabel for="appointmentid" value="Appointment ID:" class="form-label" />
+                <h:inputText id="appointmentid" value="#{register.appointmentid}" class="form-control" />
+                <h:message for="appointmentid" style="color:red" />
+            </div>
+            <div class="form-group">
+                <h:outputLabel for="patientUsername" value="Patient Username:" class="form-label" />
+                <h:inputText id="patientUsername" value="#{register.patientUsername}" class="form-control" />
+                <h:message for="patientUsername" style="color:red" />
+            </div>
+            <div class="form-group">
+                <h:outputLabel for="patientProblem" value="Patient Problem Description:" class="form-label" />
+                <h:selectOneMenu id="patientProblem" value="#{register.patientProblem}" class="form-control custom-select">
+                    <f:selectItem itemLabel="Select a problem" itemValue="" />
+                    <!-- General Problems -->
+                    <f:selectItem itemLabel="General Fatigue" itemValue="General Fatigue" />
+                    <f:selectItem itemLabel="General Weakness" itemValue="General Weakness" />
+                    <!-- Cardiovascular Issues -->
+                    <f:selectItem itemLabel="Chest Pain" itemValue="Chest Pain" />
+                    <f:selectItem itemLabel="Shortness of Breath" itemValue="Shortness of Breath" />
+                    <f:selectItem itemLabel="Palpitations" itemValue="Palpitations" />
+                    <!-- Dermatological Issues -->
+                    <f:selectItem itemLabel="Rashes" itemValue="Rashes" />
+                    <f:selectItem itemLabel="Itching" itemValue="Itching" />
+                    <f:selectItem itemLabel="Acne" itemValue="Acne" />
+                    <f:selectItem itemLabel="Eczema" itemValue="Eczema" />
+                    <f:selectItem itemLabel="Psoriasis" itemValue="Psoriasis" />
+                    <!-- Endocrinological Issues -->
+                    <f:selectItem itemLabel="Thyroid Problems" itemValue="Thyroid Problems" />
+                    <f:selectItem itemLabel="Diabetes" itemValue="Diabetes" />
+                    <f:selectItem itemLabel="Hormonal Imbalances" itemValue="Hormonal Imbalances" />
+                    <!-- Gastroenterological Issues -->
+                    <f:selectItem itemLabel="Abdominal Pain" itemValue="Abdominal Pain" />
+                    <f:selectItem itemLabel="Acid Reflux" itemValue="Acid Reflux" />
+                    <f:selectItem itemLabel="Constipation" itemValue="Constipation" />
+                    <f:selectItem itemLabel="Diarrhea" itemValue="Diarrhea" />
+                    <!-- Neurological Issues -->
+                    <f:selectItem itemLabel="Headaches" itemValue="Headaches" />
+                    <f:selectItem itemLabel="Dizziness" itemValue="Dizziness" />
+                    <f:selectItem itemLabel="Seizures" itemValue="Seizures" />
+                    <!-- Obstetric Issues -->
+                    <f:selectItem itemLabel="Pregnancy Check" itemValue="Pregnancy Check" />
+                    <f:selectItem itemLabel="Labor Pain" itemValue="Labor Pain" />
+                    <f:selectItem itemLabel="Menstrual Disorders" itemValue="Menstrual Disorders" />
+                    <!-- Oncological Issues -->
+                    <f:selectItem itemLabel="Breast Lump" itemValue="Breast Lump" />
+                    <f:selectItem itemLabel="Unexplained Weight Loss" itemValue="Unexplained Weight Loss" />
+                    <f:selectItem itemLabel="Chronic Cough" itemValue="Chronic Cough" />
+                    <!-- Ophthalmological Issues -->
+                    <f:selectItem itemLabel="Eye Pain" itemValue="Eye Pain" />
+                    <f:selectItem itemLabel="Blurry Vision" itemValue="Blurry Vision" />
+                    <f:selectItem itemLabel="Redness" itemValue="Redness" />
+                    <!-- Orthopedic Issues -->
+                    <f:selectItem itemLabel="Back Pain" itemValue="Back Pain" />
+                    <f:selectItem itemLabel="Joint Pain" itemValue="Joint Pain" />
+                    <f:selectItem itemLabel="Bone Fracture" itemValue="Bone Fracture" />
+                    <f:selectItem itemLabel="Muscle Strain" itemValue="Muscle Strain" />
+                    <!-- Pediatric Issues -->
+                    <f:selectItem itemLabel="Fever" itemValue="Fever" />
+                    <f:selectItem itemLabel="Cough" itemValue="Cough" />
+                    <f:selectItem itemLabel="Vomiting" itemValue="Vomiting" />
+                    <f:selectItem itemLabel="Rashes" itemValue="Rashes" />
+                    <!-- Psychiatric Issues -->
+                    <f:selectItem itemLabel="Anxiety" itemValue="Anxiety" />
+                    <f:selectItem itemLabel="Depression" itemValue="Depression" />
+                    <f:selectItem itemLabel="Stress" itemValue="Stress" />
+                    <f:selectItem itemLabel="Sleep Disorders" itemValue="Sleep Disorders" />
+                    <!-- Pulmonological Issues -->
+                    <f:selectItem itemLabel="Chronic Cough" itemValue="Chronic Cough" />
+                    <f:selectItem itemLabel="Shortness of Breath" itemValue="Shortness of Breath" />
+                    <f:selectItem itemLabel="Wheezing" itemValue="Wheezing" />
+                    <!-- Radiological Issues -->
+                    <f:selectItem itemLabel="Unexplained Pain" itemValue="Unexplained Pain" />
+                    <f:selectItem itemLabel="Abnormal X-Ray Results" itemValue="Abnormal X-Ray Results" />
+                    <f:selectItem itemLabel="Bone Density Loss" itemValue="Bone Density Loss" />
+                    <!-- Urological Issues -->
+                    <f:selectItem itemLabel="Frequent Urination" itemValue="Frequent Urination" />
+                    <f:selectItem itemLabel="Painful Urination" itemValue="Painful Urination" />
+                    <f:selectItem itemLabel="Blood in Urine" itemValue="Blood in Urine" />
+                    <!-- Allergist/Immunologist Issues -->
+                    <f:selectItem itemLabel="Allergic Reactions" itemValue="Allergic Reactions" />
+                    <f:selectItem itemLabel="Asthma" itemValue="Asthma" />
+                    <f:selectItem itemLabel="Sinusitis" itemValue="Sinusitis" />
+                    <!-- Rheumatological Issues -->
+                    <f:selectItem itemLabel="Joint Pain" itemValue="Joint Pain" />
+                    <f:selectItem itemLabel="Swelling" itemValue="Swelling" />
+                    <f:selectItem itemLabel="Morning Stiffness" itemValue="Morning Stiffness" />
+                    <!-- Anesthesiological Issues -->
+                    <f:selectItem itemLabel="Post-Surgery Pain" itemValue="Post-Surgery Pain" />
+                    <f:selectItem itemLabel="Anesthesia Reaction" itemValue="Anesthesia Reaction" />
+                    <f:selectItem itemLabel="Chronic Pain" itemValue="Chronic Pain" />
+                </h:selectOneMenu>
+                <h:message for="patientProblem" style="color:red" />
+            </div>
+            <div class="form-group">
+                <h:outputLabel for="doctorUsername" value="Doctor Username:" class="form-label" />
+                <h:inputText id="doctorUsername" value="#{register.doctorUsername}" class="form-control" />
+                <h:message for="doctorUsername" style="color:red" />
+            </div>
+            <div class="form-group">
+                <h:outputLabel for="appointmentDate" value="Appointment Date:" class="form-label" />
+                <h:inputText id="appointmentDate" value="#{register.appointmentDate}" class="form-control datepicker">
+                    <f:convertDateTime pattern="yyyy-MM-dd" />
+                </h:inputText>
+                <h:message for="appointmentDate" style="color:red" />
+            </div>
+            <div class="form-group">
+                <h:outputLabel for="appointmentTime" value="Appointment Time:" class="form-label" />
+                <h:inputText id="appointmentTime" value="#{register.appointmentTime}" class="form-control timepicker">
+                    <f:convertDateTime pattern="hh:mm" />
+                </h:inputText>
+                <h:message for="appointmentTime" style="color:red" />
+            </div>
+             <div class="form-group">
+                <h:outputLabel for="reportFile" value="Upload Report:" />
+                <h:inputFile id="reportFile" value="#{register.reportFile}" class="form-control-file" />
+                <h:message for="reportFile" style="color:red" />
+            </div>
+            <div class="form-group">
+                <h:commandButton value="Create Appointment" action="#{register.createappointment()}" class="btn btn-primary" />
+            </div>
+        </h:form>
+    </div>
+    <!-- Add Bootstrap JS for interactive components (optional) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.min.js"></script>
+    <script>
+        $(function() {
+            $(".datepicker").datepicker({
+                autoclose: true,
+                todayHighlight: true,
+                format: 'yyyy-mm-dd'
+            });
+            $(".timepicker").timepicker({
+                showMeridian: true,
+                minuteStep: 15,
+                template: "dropdown",
+                showInputs: false
+            });
+        });
+    </script>
+</h:body>
+</html>

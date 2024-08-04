@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+<head>
+    <title>Registration Form</title>
+    <style>
+        /* General styles */
+
+        body {
+            margin: 0;
+            background-color: #f2f2f2;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .navbar-container {
+            width: 100%;
+        }
+
+        .main-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+            width: 100%;
+        }
+
+        .form-container {
+            width: 390px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #666;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group input[type="password"]:focus {
+            outline: none;
+            border-color: #66afe9;
+        }
+
+        .form-group .error-msg {
+            color: #cc0000;
+            font-size: 12px;
+            margin-top: 4px;
+            text-align: left;
+        }
+
+        .btn-register {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-register:hover {
+            background-color: #45a049;
+        }
+
+        .password-instructions {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar-container">
+        <ui:include src="/resources/navbar/adminnavbar.html"/>
+    </div>
+    <div class="main-content">
+        <div class="form-container">
+            <h2>Register Here</h2>
+            <h:form>
+                <div class="form-group">
+                    <label for="Firstname">First Name:</label>
+                    <h:inputText id="Firstname" value="#{register.patientfirstname}" required="true" />
+                    <h:message for="Firstname" styleClass="error-msg" />
+                </div>
+                <div class="form-group">
+                    <label for="Lastname">Last Name:</label>
+                    <h:inputText id="Lastname" value="#{register.patientlastname}" required="true" />
+                    <h:message for="Lastname" styleClass="error-msg" />
+                </div>
+                <div class="form-group">
+                    <label for="Phonenum">Phone Number:</label>
+                    <h:inputText id="Phonenum" value="#{register.patientphonenumber}" required="true" />
+                    <h:message for="Phonenum" styleClass="error-msg" />
+                </div>
+                <div class="form-group">
+                <label>Gender:</label>
+                <h:selectOneRadio value="#{register.patientgender}">
+                    <f:selectItem itemLabel="Male" itemValue="male" />
+                    <f:selectItem itemLabel="Female" itemValue="female" />
+                    <f:selectItem itemLabel="Other" itemValue="other" />
+                </h:selectOneRadio>
+                <h:message for="Gender" styleClass="error-msg" />
+            </div>
+                <div class="form-group">
+                    <label for="Email">Email:</label>
+                    <h:inputText id="Email" value="#{register.patientemail}" required="true" />
+                    <h:message for="Email" styleClass="error-msg" />
+                </div>
+                <div class="form-group">
+                    <label for="Username">Username:</label>
+                    <h:inputText id="Username" value="#{register.patientusername}" required="true" />
+                    <h:message for="Username" styleClass="error-msg" />
+                </div>
+                 <div class="form-group">
+                <label for="Password">Password:</label>
+                <h:inputSecret id="Password" value="#{register.patientpassword}" required="true">
+                    <f:validateRegex pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$"/>
+                </h:inputSecret>
+                <div class="password-instructions">
+                    Password must start with a capital letter, contain a special character, have at least one number, and be at least 8 characters long.
+                </div>
+                <h:message for="Password" styleClass="error-msg" />
+            </div>
+                <h:commandButton id="Register" action="#{register.callpatientregister()}" styleClass="btn-register" value="Register" /><br/>  
+                <h:messages globalOnly="true" styleClass="error-msg" />
+            </h:form>
+        </div>
+    </div>
+</body>
+</html>

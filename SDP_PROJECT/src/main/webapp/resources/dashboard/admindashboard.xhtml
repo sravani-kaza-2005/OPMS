@@ -1,0 +1,29 @@
+<!-- dashboard.xhtml -->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+<head>
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div id="dashboardSidebar" class="sidebar">
+        <h2 class="text-center">Admin Dashboard</h2>
+        <a href="adminhome.jsf">Home</a>
+        <a href="admin-viewallpatients.jsf">View Patients</a>
+        <a href="admin-viewalldoctors.jsf">View Doctors</a>
+        <a href="admin-viewappointments.jsf">View Appointments</a>
+        <a href="patientregister.jsf">Add Patient</a>
+        <a href="doctorregister.jsf">Add Doctor</a>
+        <a href="createappointment.jsf">Add Appointment</a>
+    </div>
+
+    <!-- Button Icon -->
+    <button class="dashboard-button" onclick="toggleSidebar()">
+        <i class="material-icons">dashboard</i>
+    </button>
+ 
+</body>
+</html>
