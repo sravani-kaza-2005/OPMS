@@ -48,35 +48,35 @@ Additionally, the system integrates **email notifications** to notify doctors an
 
 OPMS/
 │
-├── README.md                  # Project documentation
-├── LICENSE                    # MIT License
-├── pom.xml                    # Maven dependencies
+├── README.md
+├── LICENSE
+├── pom.xml
 │
-├── src/                       # Java source code
+├── src/
 │   ├── main/
 │   │   ├── java/
-│   │   │   ├── com/opms/admin/      # Admin module classes (controllers, services, models)
-│   │   │   ├── com/opms/doctor/     # Doctor module classes
-│   │   │   ├── com/opms/patient/    # Patient module classes
-│   │   │   └── com/opms/mail/       # Email notification classes
+│   │   │   ├── com/opms/admin/      ← Admin module 🛡️
+│   │   │   ├── com/opms/doctor/     ← Doctor module 👨‍⚕️
+│   │   │   ├── com/opms/patient/    ← Patient module 🧑‍🤝‍🧑
+│   │   │   └── com/opms/mail/       ← Email notification ✉️
 │   │   └── resources/
-│   │       ├── META-INF/            # Persistence configurations
-│   │       └── application.properties # DB & other config
+│   │       ├── META-INF/            ← Persistence configs
+│   │       └── application.properties
 │   │
 │   └── test/
-│       └── java/                    # Unit tests
+│       └── java/                    ← Unit tests
 │
-├── WebContent/                 # JSF pages & frontend resources
-│   ├── admin/                  # Admin UI pages (xhtml, CSS)
-│   ├── doctor/                 # Doctor UI pages
-│   ├── patient/                # Patient UI pages
-│   └── resources/              # Shared CSS, JS, images
+├── WebContent/
+│   ├── admin/                  ← Admin UI pages
+│   ├── doctor/                 ← Doctor UI pages
+│   ├── patient/                ← Patient UI pages
+│   └── resources/              ← CSS, JS, images
 │
-├── scripts/                    # Optional: SQL scripts, setup scripts
+├── scripts/                    ← Optional SQL/setup scripts
 │   └── init_db.sql
-│
-└── docs/                       # Optional: Design docs, ER diagrams, screenshots
+└── docs/                       ← Optional docs/screenshots
     └── screenshots/
+
 
 ---
 
