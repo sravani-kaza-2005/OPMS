@@ -55,28 +55,28 @@ OPMS/
 ├── src/
 │   ├── main/
 │   │   ├── java/
-│   │   │   ├── com/opms/admin/      ← Admin module 🛡️
-│   │   │   ├── com/opms/doctor/     ← Doctor module 👨‍⚕️
-│   │   │   ├── com/opms/patient/    ← Patient module 🧑‍🤝‍🧑
-│   │   │   └── com/opms/mail/       ← Email notification ✉️
+│   │   │   ├── com/opms/admin/        ← Admin module 🛡️
+│   │   │   ├── com/opms/doctor/       ← Doctor module 👨‍⚕️
+│   │   │   ├── com/opms/patient/      ← Patient module 🧑‍🤝‍🧑
+│   │   │   └── com/opms/mail/         ← Email notification ✉️
 │   │   └── resources/
-│   │       ├── META-INF/            ← Persistence configs
+│   │       ├── META-INF/              ← Persistence configs
 │   │       └── application.properties
 │   │
 │   └── test/
-│       └── java/                    ← Unit tests
+│       └── java/                      ← Unit tests
 │
 ├── WebContent/
-│   ├── admin/                  ← Admin UI pages
-│   ├── doctor/                 ← Doctor UI pages
-│   ├── patient/                ← Patient UI pages
-│   └── resources/              ← CSS, JS, images
+│   ├── admin/                         ← Admin UI pages
+│   ├── doctor/                        ← Doctor UI pages
+│   ├── patient/                       ← Patient UI pages
+│   └── resources/                     ← CSS, JS, images
 │
-├── scripts/                    ← Optional SQL/setup scripts
+├── scripts/                           ← Optional SQL/setup scripts
 │   └── init_db.sql
-└── docs/                       ← Optional docs/screenshots
+│
+└── docs/                              ← Optional docs/screenshots
     └── screenshots/
-
 
 ---
 
